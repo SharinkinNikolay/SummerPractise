@@ -1,0 +1,6 @@
+﻿cl : командная строка  warning D9035: использование параметра "Gm" нежелательно, он будет удален в следующих выпусках
+  main.c
+  bmp.c
+  Создание кода...
+bmp.obj : warning LNK4075: не учитывается "/EDITANDCONTINUE" из-за спецификации "/INCREMENTAL:NO"
+  template.vcxproj -> D:\prac\picture\Debug\picture.exe
