@@ -1,26 +1,109 @@
-#include <windows.h>
+// Microsoft Visual C++ generated resource script.
+//
 #include "resource.h"
+/////////////////////////////////////////////////////////////////////////////
+// Русский (Россия) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_RUS)
+LANGUAGE LANG_RUSSIAN, SUBLANG_DEFAULT
+#pragma code_page(1251)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+MAINICON                ICON                    "icon.ico"
 
 
-MainIcon    ICON    "icon.ico"
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
 
-Bitmap1     BITMAP  "bitmap.bmp"
+BITMAP1                 BITMAP                  "bitmap.bmp"
 
 
-MainMenu    MENU {
-	POPUP "&Ё"
-		{
-		MENUITEM "&Открыть\tCtrl+o", IDM_OPEN
-        MENUITEM "Открыть из &ресурсов", IDM_OPEN2
-        MENUITEM "&Сохранить\tCtrl+s", IDM_SAVE
-        MENUITEM "&Преобразовать\tCtrl+i", IDM_INVERT
-        MENUITEM "&Оттенки серого\tCtrl+g", IDM_GRAYSTYLE
-		}
-	}
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
 
-Accel   ACCELERATORS {
-	"^o", IDM_OPEN
-    "^s", IDM_SAVE
-    "^i", IDM_INVERT
-    "^g", IDM_GRAYSTYLE
-}
+MAINMENU MENU
+BEGIN
+    POPUP "&Menu"
+    BEGIN
+        MENUITEM "&Открыть\tCtrl+o",            IDM_OPEN
+        MENUITEM "Открыть из &ресурсов",        IDM_OPEN2
+        MENUITEM "&Сохранить\tCtrl+s",          IDM_SAVE
+        MENUITEM "&Преобразовать\tCtrl+i",      IDM_INVERT
+        MENUITEM "&Оттенки серого\tCtrl+g",     IDM_GRAYSTYLE
+        MENUITEM "&Понизить яркость\tCtrl+z",   IDM_DECREASE_BRIGHTNESS
+        MENUITEM "&Повысить яркость\tCtrl+x",   IDM_INCREASE_BRIGHTNESS
+        MENUITEM "&Отразить по горизонтали\t Ctrl+c", ID_40009
+        MENUITEM "&Умножение изображения в 4 раза \t Ctrl+v", IDM_SCALE_BITMAP
+        MENUITEM "&Черно-белое изображение\t Ctrl+b", IDM_BLACKWHITE_BITMAP
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+ACCEL ACCELERATORS
+BEGIN
+    "^B",           IDM_BLACKWHITE_BITMAP,  ASCII,  NOINVERT
+    "^Z",           IDM_DECREASE_BRIGHTNESS, ASCII, NOINVERT
+    "^G",           IDM_GRAYSTYLE,          ASCII,  NOINVERT
+    "^X",           IDM_INCREASE_BRIGHTNESS, ASCII, NOINVERT
+    "\t",           IDM_INVERT,             ASCII,  NOINVERT
+    "^C",           IDM_MIRRORED_BITMAP,    ASCII,  NOINVERT
+    "^O",           IDM_OPEN,               ASCII,  NOINVERT
+    "^S",           IDM_SAVE,               ASCII,  NOINVERT
+    "^V",           IDM_SCALE_BITMAP,       ASCII,  NOINVERT
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Русский (Россия) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

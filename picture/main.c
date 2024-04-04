@@ -1,10 +1,10 @@
 /****************************************************************************
 
-    Модуль main.c
+	Модуль main.c
 
-    Пример отображения картинок.
+	Пример отображения картинок.
 
-    Маткин Илья Александрович       06.11.2013
+	Маткин Илья Александрович       06.11.2013
 
 ****************************************************************************/
 
@@ -33,15 +33,15 @@ HBITMAP glCurrentBitmap;    // описатель картинки
 //----------------------------------------
 // объявление функций
 
-BOOL CreateExtraConsole (void);
+BOOL CreateExtraConsole(void);
 
-ATOM RegisterClassMainWindow (void);
+ATOM RegisterClassMainWindow(void);
 
-HWND CreateMainWindow (void);
+HWND CreateMainWindow(void);
 
-LRESULT CALLBACK WndProcMain (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
+LRESULT CALLBACK WndProcMain(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam);
 
-void UpdateCurrentBitmap (HBITMAP newBitmap, HWND hwnd);
+void UpdateCurrentBitmap(HBITMAP newBitmap, HWND hwnd);
 
 //----------------------------------------
 // описание функций
@@ -49,20 +49,20 @@ void UpdateCurrentBitmap (HBITMAP newBitmap, HWND hwnd);
 //
 // Функция создания консоли
 //
-static BOOL CreateExtraConsole (void) {
+static BOOL CreateExtraConsole(void) {
 
 	if (!AllocConsole())
 		return FALSE;
 
-    //HANDLE file = CreateFile("C:\\out.txt",GENERIC_WRITE,(DWORD)0,NULL,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,(HANDLE) NULL);
-	SetConsoleTitle ("Debug console");
-	*stdout = *(_fdopen (_open_osfhandle ((long)GetStdHandle (STD_OUTPUT_HANDLE), _O_TEXT), "w"));
-    //*stdout = *(_fdopen(_open_osfhandle((long)file,_O_TEXT),"w"));
-	*stderr = *(_fdopen (_open_osfhandle ((long)GetStdHandle (STD_ERROR_HANDLE), _O_TEXT), "w"));
-	*stdin = *(_fdopen (_open_osfhandle ((long)GetStdHandle (STD_INPUT_HANDLE), _O_TEXT), "r"));
-	if (setvbuf (stdout, NULL, _IONBF, 0))
+	//HANDLE file = CreateFile("C:\\out.txt",GENERIC_WRITE,(DWORD)0,NULL,CREATE_ALWAYS,FILE_ATTRIBUTE_NORMAL,(HANDLE) NULL);
+	SetConsoleTitle("Debug console");
+	*stdout = *(_fdopen(_open_osfhandle((long)GetStdHandle(STD_OUTPUT_HANDLE), _O_TEXT), "w"));
+	//*stdout = *(_fdopen(_open_osfhandle((long)file,_O_TEXT),"w"));
+	*stderr = *(_fdopen(_open_osfhandle((long)GetStdHandle(STD_ERROR_HANDLE), _O_TEXT), "w"));
+	*stdin = *(_fdopen(_open_osfhandle((long)GetStdHandle(STD_INPUT_HANDLE), _O_TEXT), "r"));
+	if (setvbuf(stdout, NULL, _IONBF, 0))
 		return FALSE;
-	if (setvbuf (stderr, NULL, _IONBF, 0))
+	if (setvbuf(stderr, NULL, _IONBF, 0))
 		return FALSE;
 
 	return TRUE;
@@ -73,36 +73,36 @@ static BOOL CreateExtraConsole (void) {
 //
 // Основная функция оконных приложений
 //
-int WINAPI WinMain (
-    HINSTANCE hInstance,
-    HINSTANCE hPrevInstance,
-    PSTR szCmdLine,
-    int iCmdShow) {
+int WINAPI WinMain(
+	HINSTANCE hInstance,
+	HINSTANCE hPrevInstance,
+	PSTR szCmdLine,
+	int iCmdShow) {
 
-MSG msg;
-HACCEL  hAccel;
-HWND HwndMainWindow;
-    
-    hIns = hInstance;
+	MSG msg;
+	HACCEL  hAccel;
+	HWND HwndMainWindow;
 
-    HwndMainWindow = CreateMainWindow();
-    if (HwndMainWindow == NULL) {
-        return 0;
-        }
+	hIns = hInstance;
+
+	HwndMainWindow = CreateMainWindow();
+	if (HwndMainWindow == NULL) {
+		return 0;
+	}
 
 	CreateExtraConsole();
 
-    hAccel = LoadAccelerators (hIns, "Accel");
+	hAccel = LoadAccelerators(hIns, "Accel");
 
-    // Основной цикл обработки сообщений
-    while ( GetMessage(&msg, NULL, 0, 0) ) {
-        if (!TranslateAccelerator (HwndMainWindow, hAccel, &msg)) {
-            TranslateMessage (&msg);
-            DispatchMessage (&msg);
-            }
-        }
+	// Основной цикл обработки сообщений
+	while (GetMessage(&msg, NULL, 0, 0)) {
+		if (!TranslateAccelerator(HwndMainWindow, hAccel, &msg)) {
+			TranslateMessage(&msg);
+			DispatchMessage(&msg);
+		}
+	}
 
-    return msg.wParam;
+	return msg.wParam;
 }
 
 //--------------------
@@ -110,24 +110,24 @@ HWND HwndMainWindow;
 //
 // Регистрация класса основного окна приложения
 //
-static ATOM RegisterClassMainWindow (void){
+static ATOM RegisterClassMainWindow(void) {
 
-WNDCLASSEX WndClass;
+	WNDCLASSEX WndClass;
 
-    WndClass.cbSize         = sizeof (WndClass);        // размер структуры класса
-    WndClass.style          = 0;
-    WndClass.lpfnWndProc    = WndProcMain;              // адрес оконной процедуры класса
-    WndClass.cbClsExtra     = 0;                        // размер дополнительной памяти класса
-    WndClass.cbWndExtra     = sizeof(void*);            // размер дополнительной памяти окна
-    WndClass.hInstance      = hIns;                     // описатель приложения
-    WndClass.hIcon          = LoadIcon (hIns, "MainIcon");
-    WndClass.hCursor        = LoadCursor (NULL, IDC_ARROW); // курсор окна
-    WndClass.hbrBackground  = (HBRUSH) GetStockObject (BLACK_BRUSH);
-    WndClass.lpszMenuName   = "MainMenu";               // имя ресурса главного меню
-    WndClass.lpszClassName  = AppWindowName;            // имя класса
-    WndClass.hIconSm        = LoadIcon (hIns, "MainIcon");
+	WndClass.cbSize = sizeof(WndClass);        // размер структуры класса
+	WndClass.style = 0;
+	WndClass.lpfnWndProc = WndProcMain;              // адрес оконной процедуры класса
+	WndClass.cbClsExtra = 0;                        // размер дополнительной памяти класса
+	WndClass.cbWndExtra = sizeof(void*);            // размер дополнительной памяти окна
+	WndClass.hInstance = hIns;                     // описатель приложения
+	WndClass.hIcon = LoadIcon(hIns, "MainIcon");
+	WndClass.hCursor = LoadCursor(NULL, IDC_ARROW); // курсор окна
+	WndClass.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
+	WndClass.lpszMenuName = "MainMenu";               // имя ресурса главного меню
+	WndClass.lpszClassName = AppWindowName;            // имя класса
+	WndClass.hIconSm = LoadIcon(hIns, "MainIcon");
 
-    return RegisterClassEx (&WndClass);
+	return RegisterClassEx(&WndClass);
 }
 
 //--------------------
@@ -135,32 +135,32 @@ WNDCLASSEX WndClass;
 //
 // Создание основного окна приложения
 //
-static HWND CreateMainWindow (void){
+static HWND CreateMainWindow(void) {
 
-HWND hwnd;
+	HWND hwnd;
 
-    RegisterClassMainWindow();
+	RegisterClassMainWindow();
 
-    hwnd = CreateWindowEx (WS_EX_CONTROLPARENT | WS_EX_APPWINDOW,
-                          AppWindowName,
-                          "Application",
-                          WS_OVERLAPPEDWINDOW,
-                          10, 10,
-                          650, 600,
-                          NULL,                 // описатель родительского окна
-                          NULL,                 // описатель главного меню (для главного окна)
-                          hIns, NULL);
+	hwnd = CreateWindowEx(WS_EX_CONTROLPARENT | WS_EX_APPWINDOW,
+		AppWindowName,
+		"Application",
+		WS_OVERLAPPEDWINDOW,
+		10, 10,
+		650, 600,
+		NULL,                 // описатель родительского окна
+		NULL,                 // описатель главного меню (для главного окна)
+		hIns, NULL);
 
-    if (hwnd == NULL) {
-        MessageBox (NULL, "Ошибка создания основного окна приложения", "", MB_OK);
-        return NULL;
-        }
+	if (hwnd == NULL) {
+		MessageBox(NULL, "Ошибка создания основного окна приложения", "", MB_OK);
+		return NULL;
+	}
 
-    // отображение окна
-    ShowWindow (hwnd, SW_SHOWNORMAL);
-    UpdateWindow (hwnd);
+	// отображение окна
+	ShowWindow(hwnd, SW_SHOWNORMAL);
+	UpdateWindow(hwnd);
 
-    return hwnd;
+	return hwnd;
 }
 
 //--------------------
@@ -168,17 +168,17 @@ HWND hwnd;
 //
 // Функция обновляет текущую картинку
 //
-static void UpdateCurrentBitmap (HBITMAP newBitmap, HWND hwnd) {
+static void UpdateCurrentBitmap(HBITMAP newBitmap, HWND hwnd) {
 
-    if (newBitmap) {
-        if (glCurrentBitmap) {
-            DeleteObject (glCurrentBitmap);
-            }
-        glCurrentBitmap = newBitmap;
-        InvalidateRect (hwnd, NULL, TRUE);
-        }
+	if (newBitmap) {
+		if (glCurrentBitmap) {
+			DeleteObject(glCurrentBitmap);
+		}
+		glCurrentBitmap = newBitmap;
+		InvalidateRect(hwnd, NULL, TRUE);
+	}
 
-    return;
+	return;
 }
 
 
@@ -187,81 +187,114 @@ static void UpdateCurrentBitmap (HBITMAP newBitmap, HWND hwnd) {
 //
 // Функция обработки сообщений главного окна приложения.
 //
-static LRESULT CALLBACK WndProcMain (HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam) {
+static LRESULT CALLBACK WndProcMain(HWND hwnd, UINT iMsg, WPARAM wParam, LPARAM lParam) {
 
-HDC	hdc;
-PAINTSTRUCT ps;
-HBITMAP newBitmap;
+	HDC	hdc;
+	PAINTSTRUCT ps;
+	HBITMAP newBitmap;
 
-    switch (iMsg){
+	switch (iMsg) {
 
-        case WM_CREATE:
-            //newBitmap = LoadImage (GetModuleHandle(NULL), "Bitmap1", IMAGE_BITMAP, 0, 0, 0);
-            //UpdateCurrentBitmap (newBitmap, hwnd);
-            return 0;
+	case WM_CREATE:
+		//newBitmap = LoadImage (GetModuleHandle(NULL), "Bitmap1", IMAGE_BITMAP, 0, 0, 0);
+		//UpdateCurrentBitmap (newBitmap, hwnd);
+		return 0;
 
-        case WM_DESTROY:
-            PostQuitMessage (0);
-            return 0;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
 
-        case WM_PAINT:
-            
-            hdc = BeginPaint (hwnd,&ps);
+	case WM_PAINT:
 
-            if (glCurrentBitmap)
-				DrawBitmap(hdc, glCurrentBitmap, 0, 0);
+		hdc = BeginPaint(hwnd, &ps);
 
-            EndPaint (hwnd, &ps);
-            return 0;
+		if (glCurrentBitmap)
+			DrawBitmap(hdc, glCurrentBitmap, 0, 0);
 
-        case WM_CLOSE:
-            break;
+		EndPaint(hwnd, &ps);
+		return 0;
 
-        case WM_QUIT:
-            break;
+	case WM_CLOSE:
+		break;
 
-        case WM_COMMAND:
+	case WM_QUIT:
+		break;
 
-            switch (LOWORD (wParam)) {
-                case IDM_OPEN:
-                    newBitmap = LoadBmpFile (hwnd, hIns);
-                    UpdateCurrentBitmap (newBitmap, hwnd);
-                    break;
+	case WM_COMMAND:
 
-                case IDM_OPEN2:
-                    // Загружаем картинку из ресурсов
-                    newBitmap = LoadImage (hIns, "Bitmap1", IMAGE_BITMAP, 0, 0, 0);
-                    UpdateCurrentBitmap (newBitmap, hwnd);
-                    break;
+		switch (LOWORD(wParam)) {
+		case IDM_OPEN:
+			newBitmap = LoadBmpFile(hwnd, hIns);
+			UpdateCurrentBitmap(newBitmap, hwnd);
+			break;
 
-                case IDM_SAVE:
-                    if (glCurrentBitmap){
-                        SaveBMPFile (glCurrentBitmap, hwnd);
-                        }
-                    break;
+		case IDM_OPEN2:
+			// Загружаем картинку из ресурсов
+			newBitmap = LoadImage(hIns, "Bitmap1", IMAGE_BITMAP, 0, 0, 0);
+			UpdateCurrentBitmap(newBitmap, hwnd);
+			break;
 
-                case IDM_INVERT:
-                    if (glCurrentBitmap){
-                        newBitmap = InvertBitmap (glCurrentBitmap);
-                        UpdateCurrentBitmap (newBitmap, hwnd);
-                        }
-                    break;
+		case IDM_SAVE:
+			if (glCurrentBitmap) {
+				SaveBMPFile(glCurrentBitmap, hwnd);
+			}
+			break;
 
-                case IDM_GRAYSTYLE:
-                    if (glCurrentBitmap){
-                        newBitmap = GetGraystyleBitmap (glCurrentBitmap);
-                        UpdateCurrentBitmap (newBitmap, hwnd);
-                        }
-                    break;
+		case IDM_INVERT:
+			if (glCurrentBitmap) {
+				newBitmap = InvertBitmap(glCurrentBitmap);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
 
-                default:
-                    break;			
-                }
+		case IDM_GRAYSTYLE:
+			if (glCurrentBitmap) {
+				newBitmap = GetGraystyleBitmap(glCurrentBitmap);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
 
-			return 0;
-        }
+		case IDM_DECREASE_BRIGHTNESS:
+			if (glCurrentBitmap) {
+				newBitmap = ChangeBrightness(glCurrentBitmap, -8);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
+		case IDM_INCREASE_BRIGHTNESS:
+			if (glCurrentBitmap) {
+				newBitmap = ChangeBrightness(glCurrentBitmap, 8);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
+		case IDM_MIRRORED_BITMAP:
+			if (glCurrentBitmap) {
+				newBitmap = GetMirroredBitmap(glCurrentBitmap);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
 
-    return DefWindowProc (hwnd, iMsg, wParam, lParam);
+		case IDM_SCALE_BITMAP:
+			if (glCurrentBitmap) {
+				newBitmap = ScaleBitmap(glCurrentBitmap);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
+
+		case IDM_BLACKWHITE_BITMAP:
+			if (glCurrentBitmap) {
+				newBitmap = GetBlackWhiteStyleBitmap(glCurrentBitmap);
+				UpdateCurrentBitmap(newBitmap, hwnd);
+			}
+			break;
+		default:
+			break;
+		}
+
+
+		return 0;
+	}
+
+	return DefWindowProc(hwnd, iMsg, wParam, lParam);
 }
 
 //--------------------

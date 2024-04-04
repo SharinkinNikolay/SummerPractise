@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>17.0.32819.101</_ProjectFileVersion>
+    <_ProjectFileVersion>17.0.33312.129</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>.\Debug\</OutDir>
@@ -145,6 +145,7 @@
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="bitmap.bmp" />
     <Image Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>

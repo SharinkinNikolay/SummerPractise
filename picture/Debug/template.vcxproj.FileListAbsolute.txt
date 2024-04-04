@@ -1,1 +1,5 @@
-D:\prac\picture\Debug\picture.exe
+C:\Users\fsdfs\Desktop\picture\Debug\picture.exe
+C:\Users\fsdfs\Desktop\выполненные задания\picture\Debug\picture.exe
+C:\Users\Danila\Downloads\picture\Debug\picture.exe
+C:\Users\Danila\Desktop\Solutions\picture\Debug\picture.exe
+D:\Проекты\summer prac\Практика\picture\Debug\picture.exe

@@ -31,6 +31,15 @@ HBITMAP InvertBitmap (HBITMAP srcBitmap);
 
 HBITMAP GetGraystyleBitmap (HBITMAP srcBitmap);
 
+HBITMAP ChangeBrightness(HBITMAP srcBitmap, int brightness);
+
+HBITMAP GetMirroredBitmap(HBITMAP srcBitmap);
+
+HBITMAP ScaleBitmap(HBITMAP srcBitmap);
+
+HBITMAP GetBlackWhiteStyleBitmap(HBITMAP srcBitmap);
+
+
 //HBITMAP ConvertTo24Bitmap (HBITMAP srcBitmap);
 
 
