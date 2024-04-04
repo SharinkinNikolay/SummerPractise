@@ -1,0 +1,7 @@
+﻿  ops.c
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\ops.c(7,1): warning C4090: инициализация: разные квалификаторы "const"
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\ops.c(17,12): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\ops.c(56,28): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\ops.c(98,29): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\ops.c(307,26): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  NUM.vcxproj -> C:\Users\Danila\Desktop\Solutions\NUM\x64\Debug\NUM.exe

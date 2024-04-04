@@ -1,0 +1,12 @@
+﻿  main.c
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(23,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(115,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(121,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(125,9): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(130,9): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(219,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(223,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(226,9): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(231,9): warning C4018: >=: несоответствие типов со знаком и без знака
+C:\Users\Danila\Desktop\Solutions\NUM\NUM\main.c(283,9): warning C4101: bigNum4Size: неиспользованная локальная переменная
+  NUM.vcxproj -> C:\Users\Danila\Desktop\Solutions\NUM\Debug\NUM.exe
