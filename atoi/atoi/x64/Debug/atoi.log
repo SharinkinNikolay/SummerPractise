@@ -1,0 +1,4 @@
+﻿  main.c
+D:\Проекты\summer prac\Практика\atoi\atoi\func.h(92,12): warning C4090: =: разные квалификаторы "const"
+D:\Проекты\summer prac\Практика\atoi\atoi\func.h(95,8): warning C4090: инициализация: разные квалификаторы "const"
+  atoi.vcxproj -> D:\Проекты\summer prac\Практика\atoi\x64\Debug\atoi.exe
